@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 const Associations = () => {
   const [association, setAssociation] = useState([]);
+  const [messages, setMessages] = useState([]);
 
   const { slug } = useParams();
   console.log(slug);
@@ -15,7 +16,14 @@ const Associations = () => {
     const response = await request.json();
     setAssociation(response);
   };
-  console.log(association);
+
+  const fetchMsg = async () => {
+    const request = await fetch(`http://localhost:5000/associations/`);
+    const response = await request.json();
+    setMessages(response);
+  };
+  console.log(messages);
+
   return (
     <section className="assocPage">
       <img src={association.image} alt={association.name} />
