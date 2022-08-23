@@ -16,6 +16,7 @@ const Associations = () => {
     const response = await request.json();
     setAssociation(response);
   };
+  // console.log(association);
   //
 
   return (

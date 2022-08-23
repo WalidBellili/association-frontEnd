@@ -11,6 +11,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/associations/:slug" element={<Association />} />
+          <Route path="/associations/:slug/msg" element={<GetMsg />} />
         </Routes>
       </BrowserRouter>
     </>

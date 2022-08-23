@@ -2,25 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const GetMsg = () => {
-  const [test, setTest] = useState([]);
-  const [association, setAssociation] = useState([]);
+  const [test, setTest] = useState(null);
 
   useEffect(() => {
-    fetchDataParams();
     fetchdata();
   }, []);
-
-  const { slug } = useParams();
-
-  const fetchDataParams = async () => {
-    const request = await fetch(`http://localhost:5000/associations/${slug}`);
-    const response = await request.json();
-    setAssociation(response);
-    const filtered = test.filter((konexio) => {
-      return konexio.slug === slug;
-    });
-    console.log(filtered);
-  };
 
   const fetchdata = async () => {
     const request = await fetch(
@@ -28,11 +14,24 @@ const GetMsg = () => {
     );
     const response = await request.json();
     setTest(response);
-
-    console.log(test);
   };
+  console.log(test);
 
-  return <div></div>;
+  if (!test) {
+    return <p>Loading</p>;
+  }
+
+  return (
+    <>
+      <section>
+        <article>
+          {test.map((te) => {
+            return <p>{te.contenu}</p>;
+          })}
+        </article>
+      </section>
+    </>
+  );
 };
 
 export default GetMsg;
