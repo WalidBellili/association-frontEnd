@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./assets/styles/index.css";
 import Association from "./pages/Association";
 import Home from "./pages/Home";
+import GetMsg from "./pages/GetMsg";
 
 const App = () => {
   return (
