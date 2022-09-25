@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Association = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return <div>asso</div>;
 };
 
 export default Association;
