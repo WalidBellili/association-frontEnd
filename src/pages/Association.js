@@ -28,9 +28,6 @@ const Association = () => {
   return (
     <>
       <H2>Association</H2>
-      {/* {association.map((association) => {
-        return <AssociationCard association={association} />;
-      })} */}
       <section className="card singleAsso">
         <h3>{association.name}</h3>
 
