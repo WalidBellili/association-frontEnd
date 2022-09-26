@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import H2 from "../components/H2";
 import Input from "../components/Input";
 import Select from "../components/Select";
+import TextArea from "../components/TextArea";
 
 const NewMessage = () => {
   const [message, setMessage] = useState("");
-
+  const [text, setText] = useState([]);
   const [options, setOptions] = useState([]);
   const [associationSlug, setAssociationSlug] = useState("");
 
@@ -19,7 +20,9 @@ const NewMessage = () => {
   const handleAssociationSlug = (e) => {
     setAssociationSlug(e.target.value);
   };
-
+  const handleTextArea = (e) => {
+    setText(e.target.value);
+  };
   const selectOption = async () => {
     const request = await fetch(
       `${process.env.REACT_APP_API_URL}${"associations"}`
@@ -34,29 +37,11 @@ const NewMessage = () => {
     });
     setOptions(mapForOptions);
   };
-  // const options = [
-  //   {
-  //     value: "",
-  //     text: "Select an option",
-  //   },
-  //   {
-  //     value: "les-restos-du-coeurs",
-  //     text: "Les restos du coeur",
-  //   },
-  //   {
-  //     value: "unicef",
-  //     text: "Unicef",
-  //   },
-  //   {
-  //     value: "konexio",
-  //     text: "Konexio",
-  //   },
-  // ];
 
   return (
     <>
-      <H2>New Message</H2>
       <form>
+        <H2>New Message</H2>
         <Input
           onChange={handleMessage}
           value={message}
@@ -68,6 +53,13 @@ const NewMessage = () => {
           onChange={handleAssociationSlug}
           options={options}
           value={associationSlug}
+        />
+        <TextArea
+          onChange={handleTextArea}
+          value={message}
+          type="text"
+          label="Object"
+          placeholder="Object"
         />
       </form>
     </>

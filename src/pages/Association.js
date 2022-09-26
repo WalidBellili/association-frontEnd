@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import H2 from "../components/H2";
+import NewMessage from "./NewMessage";
 
 const Association = () => {
   const [association, setAssociation] = useState([]);
@@ -28,18 +29,21 @@ const Association = () => {
   return (
     <>
       <H2>Association</H2>
-      <section className="card singleAsso">
-        <h3>{association.name}</h3>
+      <div className="innerPage">
+        <section className="card singleAsso">
+          <h3>{association.name}</h3>
 
-        <hr />
-        <div className="handleImg">
-          <img src={association.image} alt={association.name} />
-        </div>
+          <hr />
+          <div className="handleImg">
+            <img src={association.image} alt={association.name} />
+          </div>
 
-        <article className="description">
-          <p className="parapgrapheDescription">{association.description}</p>
-        </article>
-      </section>
+          <article className="description">
+            <p className="parapgrapheDescription">{association.description}</p>
+          </article>
+        </section>
+        <NewMessage />
+      </div>
     </>
   );
 };

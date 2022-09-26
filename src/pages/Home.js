@@ -10,9 +10,7 @@ const Home = () => {
     // eslint-disable-next-line
   }, []);
   const fetchAssociations = async () => {
-    const request = await fetch(
-      `${process.env.REACT_APP_API_URL}${"associations"}`
-    );
+    const request = await fetch(`${process.env.REACT_APP_API_URL}associations`);
     const response = await request.json();
     setAssociations(response);
   };
@@ -23,7 +21,7 @@ const Home = () => {
       <H2>HOME</H2>
       <Grid>
         {associations.map((association) => {
-          return <AssociationCard association={association} />
+          return <AssociationCard association={association} />;
         })}
       </Grid>
     </section>
