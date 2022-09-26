@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const newMessage = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return <div>NEW MESSAGe</div>;
 };
 
 export default newMessage;
