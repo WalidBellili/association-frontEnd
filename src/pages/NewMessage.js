@@ -6,7 +6,7 @@ import TextArea from "../components/TextArea";
 
 const NewMessage = () => {
   const [message, setMessage] = useState("");
-  const [text, setText] = useState([]);
+  // const [text, setText] = useState([]);
   const [options, setOptions] = useState([]);
   const [associationSlug, setAssociationSlug] = useState("");
 
@@ -21,7 +21,7 @@ const NewMessage = () => {
     setAssociationSlug(e.target.value);
   };
   const handleTextArea = (e) => {
-    setText(e.target.value);
+    // setText(e.target.value);
   };
   const selectOption = async () => {
     const request = await fetch(
